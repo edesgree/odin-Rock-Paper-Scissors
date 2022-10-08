@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,11 +13,13 @@
         <h1>Rock Paper Scissors</h1>
         <h2>Score: Player <span>0</span> Computer <span>0</span></h2>
     </header>
+    <p>hello</p>
+    <p>coucou</p>
     <nav>
         <ul class="controls">
-            <li class="rock">Rock</li>
-            <li class="paper">Paper</li>
-            <li class="scissors">Scissors</li>
+            <li id="1" data-choice="rock" class="rock">Rock</li>
+            <li id="2" data-choice="paper"class="paper">Paper</li>
+            <li id="3" data-choice="scissors"class="scissors">Scissors</li>
         </ul>
      </nav>
     <main>

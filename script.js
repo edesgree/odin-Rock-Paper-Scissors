@@ -1,5 +1,5 @@
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
+//const playerSelection = "rock";
+//const computerSelection = getComputerChoice();
 
 // get random choice from computer
 function getComputerChoice() {
@@ -9,18 +9,43 @@ function getComputerChoice() {
 }
 
 // get user choice
+/*
 function getUserChoice() {
     let playerSelection = "";
-    //check until prompt match the words rock, paper, scissors
-    do {
-        playerSelection = prompt("What's your choice? Rock, Paper, or Scissors");
-        if(playerSelection!=null){
-            playerSelection = playerSelection.toLowerCase();
-        }
-    } while (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors')
 
-    
+    // get dataset value from clicked button
+    function getChoice(e) {
+        let choiceName = this.getAttribute('data-choice');
+        console.log(choiceName);
+        playerSelection = choiceName;
+        return playerSelection;
+    }
+    console.log("playerSelection1" + playerSelection);
+    const choices = Array.from(document.querySelectorAll('ul.controls li'));
+    var mychoice = "";
+    choices.forEach(choice => choice.addEventListener('click', ()=>{
+        console.log(choice.getAttribute('data-choice'));
+        mychoice = choice.getAttribute('data-choice');
+        return choice.getAttribute('data-choice')
+    } ));
+    console.log("hey");
+    console.log("mychoice:"+mychoice);
+
+    console.log("playerSelection2" + playerSelection);
     return playerSelection;
+
+}
+*/
+function getUserChoice() {
+    
+    const choices = Array.from(document.querySelectorAll('ul.controls li'));
+    
+    var toto=choices.forEach(choice => choice.addEventListener('click', ()=>{
+        console.log(choice.getAttribute('data-choice'));
+        
+        return choice.getAttribute('data-choice')
+    } ));
+console.log("return"+toto)
 
 }
 // play a round of game
@@ -77,9 +102,9 @@ function playGame(rounds = 5) {
         console.log("=================");
         console.log("=== ROUND" + i + " ====");
         console.log("=================");
-        
+
         result = playRound(getUserChoice(), getComputerChoice());
-       
+
         if (result === -1) {
             console.log('you lose');
             computerScore++;
@@ -102,5 +127,5 @@ function playGame(rounds = 5) {
     }
 }
 //play game
-//console.log(playGame());
-    
+console.log(playGame());
+getUserChoice();
