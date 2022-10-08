@@ -102,5 +102,5 @@ function playGame(rounds = 5) {
     }
 }
 //play game
-console.log(playGame());
+//console.log(playGame());
     

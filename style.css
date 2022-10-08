@@ -1,1 +1,64 @@
 /*ROCK PAPER SCISSORS CSS*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+main {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+    flex:1;
+    width: 100%;    
+}
+main img{
+    width: 100px;
+}
+main div{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .leftside{
+    background:rgb(205, 184, 131);
+
+}
+main .rightside{
+    background: rgb(163, 144, 183);
+    
+}
+main .rightside img{
+    transform: scaleX(-1);
+}
+nav{
+    width: 100%;
+    background:rgb(126, 166, 206);
+}
+.controls {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    justify-content: space-between;
+}
+.controls li{
+    width: 100px;
+    height: 75px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.controls li.rock{
+    background-image: url('images/rock.png');
+}
+.controls li.paper{
+    background-image: url('images/paper.png');
+}
+.controls li.scissors{
+    background-image: url('images/scissors.png');
+}
+.controls li:hover{
+    transform: scale(1.1);
+    transition: 10ms;
+}
