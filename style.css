@@ -14,9 +14,11 @@ main {
     flex: 1;
     width: 100%;
 }
-.hidden{
-    display: none;
+
+.hidden {
+    display: none !important;
 }
+
 main img {
     width: 100px;
 }
@@ -26,6 +28,14 @@ main #gamearea {
     display: flex;
     justify-content: center;
     align-items: stretch;
+}
+
+main #endgame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
 }
 
 main .leftside {
@@ -38,12 +48,13 @@ main .rightside {
 
 }
 
-main .round-choice{
-    flex:1;
+main .round-choice {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 main .round-choice span {
     width: 100px;
     height: 77px;
@@ -52,19 +63,23 @@ main .round-choice span {
     background-size: contain;
 }
 
-main .round-choice span.choice-rock{
+main .round-choice span.choice-rock {
     background-image: url("images/rock.png");
 }
-main .round-choice span.choice-paper{
+
+main .round-choice span.choice-paper {
     background-image: url("images/paper.png");
 }
-main .round-choice span.choice-scissors{
+
+main .round-choice span.choice-scissors {
     background-image: url("images/scissors.png");
 }
-main .round-choice span[data-computer-choice]{
+
+main .round-choice span[data-computer-choice] {
     transform: scaleX(-1);
-    
+
 }
+
 nav {
     width: 100%;
     background: rgb(126, 166, 206);
@@ -101,22 +116,24 @@ nav {
     transition: 10ms;
 }
 
-.choice-gif{
-    animation:play 1.5s infinite;
-  }
-  @keyframes play{
+.choice-gif {
+    animation: play 1.5s infinite;
+}
+
+@keyframes play {
     0% {
         background-image: url('images/rock.png');
     }
-    
+
     33% {
         background-image: url('images/paper.png');
     }
-    
+
     66% {
         background-image: url('images/scissors.png');
     }
+
     100% {
         background-image: url('images/rock.png');
     }
-  }
+}
