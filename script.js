@@ -1,131 +1,185 @@
-//const playerSelection = "rock";
-//const computerSelection = getComputerChoice();
 
-// get random choice from computer
-function getComputerChoice() {
-    let choices = ['rock', 'paper', 'scissors'];
-    let random = Math.floor(Math.random() * 3);
-    return choices[random];
-}
-
-// get user choice
-/*
-function getUserChoice() {
-    let playerSelection = "";
-
-    // get dataset value from clicked button
-    function getChoice(e) {
-        let choiceName = this.getAttribute('data-choice');
-        console.log(choiceName);
-        playerSelection = choiceName;
-        return playerSelection;
-    }
-    console.log("playerSelection1" + playerSelection);
-    const choices = Array.from(document.querySelectorAll('ul.controls li'));
-    var mychoice = "";
-    choices.forEach(choice => choice.addEventListener('click', ()=>{
-        console.log(choice.getAttribute('data-choice'));
-        mychoice = choice.getAttribute('data-choice');
-        return choice.getAttribute('data-choice')
-    } ));
-    console.log("hey");
-    console.log("mychoice:"+mychoice);
-
-    console.log("playerSelection2" + playerSelection);
-    return playerSelection;
-
-}
-*/
-function getUserChoice() {
+const game = () => {
+    // game function, play 5 rounds, best of 5 wins
+    // init variables
     
-    const choices = Array.from(document.querySelectorAll('ul.controls li'));
     
-    var toto=choices.forEach(choice => choice.addEventListener('click', ()=>{
-        console.log(choice.getAttribute('data-choice'));
+    // UI elememts
+    const iconChoiceComputer = document.querySelector('[data-computer-choice]');
+    
+    const iconChoiceUser = document.querySelector('[data-user-choice]');
+    const choices = Array.from(document.querySelectorAll('ul.controls li'));
+        const playerScoreEl = document.querySelector('[data-score-player]');
+        const computerScoreEl = document.querySelector('[data-score-computer]');
+        const currentRoundEl = document.querySelector('[data-current-round]');
+        const currentRoundResultEl = document.querySelector('[data-current-round-result]');
+    const playGame = (totalRounds = 5) => {
+        // init variables
+        let playerScore = 0;
+        let computerScore = 0;
+        let result = 0;
+        let currentRound = 1;
+
         
-        return choice.getAttribute('data-choice')
-    } ));
-console.log("return"+toto)
+        console.log("currentRoundEl: " + currentRoundEl);
+        console.log("currentRoundResultEl1: " + currentRoundResultEl);
+        // start the game on click of options
+        choices.forEach(choice => choice.addEventListener('click', () => {
+            //update round count
+            currentRound++;
 
-}
-// play a round of game
-function playRound(playerSelection, computerSelection) {
-    let result = 0;
-    console.log('You choose ' + playerSelection + ' and Computer choose ' + computerSelection);
-    switch (playerSelection) {
-        case 'rock':
-            if (computerSelection === 'rock') {
-                result = 0;
+            console.log("=================");
+            console.log("=== ROUND" + currentRound + " ====");
+            console.log("=================");
+            console.log(choice.getAttribute('data-choice'));
+
+            console.log("currentRound: " + currentRound);
+            console.log("currentRoundResultEl: " + currentRoundResultEl);
+            // play a round with user choice and computer choice
+            result = playRound(choice.getAttribute('data-choice'), getComputerChoice());
+            if (result === -1) {
+                console.log('you lose');
+
+                currentRoundResultEl.innerHTML = 'You lose this round!';
+                computerScore++;
+            } else if (result === 1) {
+                console.log('you win');
+                currentRoundResultEl.innerHTML = 'You win this round!';
+                playerScore++;
+            } else {
+                currentRoundResultEl.innerHTML = 'It\'s a tie!';
+                console.log('Tie!');
             }
-            else if (computerSelection === 'paper') {
-                result = -1;
+            playerScoreEl.innerHTML = playerScore;
+            computerScoreEl.innerHTML = computerScore;
+            currentRoundEl.innerHTML = currentRound;
+            console.log('Scores= Computer: ' + computerScore + ', User: ' + playerScore);
+            
+            // timer gif returns after 5 seconds
+            setTimeout(function() {
+                resetAnimationChoice();
+          }, 3000);
+
+            // end of game
+            if (currentRound === totalRounds) {
+               
+                if (playerScore > computerScore) {
+                    console.log("You win the game!");
+                } else if (playerScore < computerScore) {
+                    console.log("Computer win the game!");
+                } else {
+                    console.log("No winner");
+                }
+                // hide game area once game is finished
+                document.querySelector("#gamearea").classList.add("hidden");
+                document.querySelector("#endgame").classList.remove("hidden");
+                console.log(':)');
+                console.log(document.querySelector("#gamearea"));
+
             }
-            else if (computerSelection === 'scissors') {
-                result = 1;
+            //return choice.getAttribute('data-choice');
+            console.log("*********************");
+
+        }));
+
+
+        /*for (i = 1; i <= rounds; i++) {
+            
+
+            result = playRound(getUserChoice(), getComputerChoice());
+
+            if (result === -1) {
+                console.log('you lose');
+                computerScore++;
+            } else if (result === 1) {
+                console.log('you win');
+                playerScore++;
+            } else {
+                console.log('Tie!');
             }
-            break;
-        case 'paper':
-            if (computerSelection === 'rock') {
-                result = 1;
-            }
-            else if (computerSelection === 'paper') {
-                result = 0;
-            }
-            else if (computerSelection === 'scissors') {
-                result = -1;
-            }
-            break;
-        case 'scissors':
-            if (computerSelection === 'rock') {
-                result = -1;
-            }
-            else if (computerSelection === 'paper') {
-                result = 1;
-            }
-            else if (computerSelection === 'scissors') {
-                result = 0;
-            }
-            break;
+            console.log('Scores= Computer: ' + computerScore + ', User: ' + playerScore);
+
+        }*/
+
+    }
+    // get random choice from computer
+    function getComputerChoice() {
+        const choices = ['rock', 'paper', 'scissors'];
+
+        let random = Math.floor(Math.random() * 3);
+        let computerChoice = choices[random];
+        iconChoiceComputer.classList.remove(...iconChoiceComputer.classList);
+        iconChoiceComputer.classList.add('choice-' + computerChoice);
+        return computerChoice;
     }
 
-    return result;
-}
+    
+    // play a round of game
+    function playRound(playerSelection, computerSelection) {
+        let result = 0;
 
+        console.log('You choose ' + playerSelection + ' and Computer choose ' + computerSelection);
+        switch (playerSelection) {
+            case 'rock':
+                iconChoiceUser.classList.remove(...iconChoiceUser.classList);
+                iconChoiceUser.classList.add('choice-rock');
+                if (computerSelection === 'rock') {
+                    result = 0;
 
+                }
+                else if (computerSelection === 'paper') {
+                    result = -1;
 
-// game function, play 5 rounds, best of 5 wins
-function playGame(rounds = 5) {
-    let playerScore = 0;
-    let computerScore = 0;
-    let result = 0;
-    for (i = 1; i <= rounds; i++) {
-        console.log("=================");
-        console.log("=== ROUND" + i + " ====");
-        console.log("=================");
+                }
+                else if (computerSelection === 'scissors') {
+                    result = 1;
 
-        result = playRound(getUserChoice(), getComputerChoice());
-
-        if (result === -1) {
-            console.log('you lose');
-            computerScore++;
-        } else if (result === 1) {
-            console.log('you win');
-            playerScore++;
-        } else {
-            console.log('Tie!');
+                }
+                break;
+            case 'paper':
+                iconChoiceUser.classList.remove(...iconChoiceUser.classList);
+                iconChoiceUser.classList.add('choice-paper');
+                if (computerSelection === 'rock') {
+                    result = 1;
+                }
+                else if (computerSelection === 'paper') {
+                    result = 0;
+                }
+                else if (computerSelection === 'scissors') {
+                    result = -1;
+                }
+                break;
+            case 'scissors':
+                iconChoiceUser.classList.remove(...iconChoiceUser.classList);
+                iconChoiceUser.classList.add('choice-scissors');
+                if (computerSelection === 'rock') {
+                    result = -1;
+                }
+                else if (computerSelection === 'paper') {
+                    result = 1;
+                }
+                else if (computerSelection === 'scissors') {
+                    result = 0;
+                }
+                break;
         }
-        console.log('Scores= Computer: ' + computerScore + ', User: ' + playerScore);
 
+        return result;
     }
-    console.log("*********************");
-    if (playerScore > computerScore) {
-        console.log("You win the game!");
-    } else if (playerScore < computerScore) {
-        console.log("Computer win the game!");
-    } else {
-        console.log("No winner");
+    //reset gif
+    function resetAnimationChoice(){
+        iconChoiceUser.classList.remove(...iconChoiceUser.classList);
+        iconChoiceUser.classList.add('choice-gif');
+        iconChoiceComputer.classList.remove(...iconChoiceComputer.classList);
+        iconChoiceComputer.classList.add('choice-gif');
     }
+    // call playgame function
+    playGame();
 }
+
+
+
+
+
 //play game
-console.log(playGame());
-getUserChoice();
+game();

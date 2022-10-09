@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +9,37 @@
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Rock Paper Scissors</h1>
-        <h2>Score: Player <span>0</span> Computer <span>0</span></h2>
+        <h2>Score: Player <span data-score-player>0</span> Computer <span data-score-computer>0</span></h2>
     </header>
-    <p>hello</p>
-    <p>coucou</p>
+    <h3>Round <span data-current-round>1</span></h3>
+    <h4 data-current-round-result>coucou</h4>
     <nav>
         <ul class="controls">
-            <li id="1" data-choice="rock" class="rock">Rock</li>
-            <li id="2" data-choice="paper"class="paper">Paper</li>
-            <li id="3" data-choice="scissors"class="scissors">Scissors</li>
+            <li id="1" data-choice="rock" class="rock"></li>
+            <li id="2" data-choice="paper" class="paper"></li>
+            <li id="3" data-choice="scissors" class="scissors"></li>
         </ul>
-     </nav>
+    </nav>
+
     <main>
-         <div class="leftside">
-                <img src="images/paper.png" alt="">
-         </div>
-         <div class="rightside">
-            <img src="images/paper.png" alt="">
-         </div>
+        <div id="gamearea">
+            <div class="leftside round-choice">
+                <span data-user-choice class="choice choice-gif"></span>
+            </div>
+            <div class="rightside round-choice">
+                <span data-computer-choice class="choice choice-gif"></span>
+            </div>
+        </div>
+        <div id="endgame" class="hidden">
+            <h1>Game over</h1>
+            <a href="javascript:location.reload(true)">Play again</a>
+
+        </div>
     </main>
 </body>
+
 </html>
