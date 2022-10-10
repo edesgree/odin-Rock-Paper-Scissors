@@ -114,6 +114,7 @@ nav {
     height: 75px;
     background-size: contain;
     background-repeat: no-repeat;
+    transform: rotate(-30deg);
 }
 
 .controls li.rock {
