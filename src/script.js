@@ -54,13 +54,15 @@ const game = () => {
             }
             playerScoreEl.innerHTML = playerScore;
             computerScoreEl.innerHTML = computerScore;
-            currentRoundEl.innerHTML = currentRound;
+            
             currentRoundResultEl.innerHTML = currentRoundResult;
             console.log('Scores= Computer: ' + computerScore + ', User: ' + playerScore);
 
             // timer gif returns after 5 seconds
             setTimeout(function () {
                 resetAnimationChoice();
+                currentRoundEl.innerHTML = currentRound;
+                currentRoundResultEl.innerHTML="";
             }, 3000);
 
             // end of game
@@ -81,7 +83,7 @@ const game = () => {
                 document.querySelector('.endgame-result').innerHTML = endgameResult;
                 // hide game area once game is finished
                 document.querySelector("#gamearea").classList.add("hidden");
-                document.querySelector(".controls").classList.add("hidden");
+                document.querySelector(".nav-area").classList.add("hidden");
                 document.querySelector(".game-info").classList.add("hidden");
                 document.querySelector("#endgame").classList.remove("hidden");
                 console.log(':)');

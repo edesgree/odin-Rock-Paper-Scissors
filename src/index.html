@@ -21,7 +21,7 @@
     
     <div class="game-info">
         <h3>Round <span data-current-round>1</span></h3>
-        <h4 data-current-round-result>&nbsp;</h4>
+        <h4 data-current-round-result></h4>
     </div>
 
 
@@ -36,16 +36,16 @@
         </div>
         <div id="endgame" class="hidden">
             <h1 class="endgame-result">Game over</h1>
-            <a href="javascript:location.reload(true)">Play again</a>
+            <a href="javascript:location.reload(true)" class="btn">Play again</a>
 
         </div>
     </main>
-    <nav>
-        <h4>Choose your attack:</h4>
+    <nav class="nav-area">
+        <h4>Choose your attack!!:</h4>
         <ul class="controls">
-            <li id="1" data-choice="rock" class="rock"></li>
-            <li id="2" data-choice="paper" class="paper"></li>
-            <li id="3" data-choice="scissors" class="scissors"></li>
+            <li id="1" data-choice="rock" class="rock"><span></span></li>
+            <li id="2" data-choice="paper" class="paper"><span></span></li>
+            <li id="3" data-choice="scissors" class="scissors"><span></span></li>
         </ul>
     </nav>
 </body>
