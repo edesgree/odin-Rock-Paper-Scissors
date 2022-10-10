@@ -3,11 +3,15 @@
 //VARS
 $containerWidth: min(100% - 2rem, 60rem);
 $assetsPath: "../images/";
-
+$dark: #323031;
+$bright: #ffc857;
+$bright2: #db3a34;
+$main: #084c61;
+$main2: #177e89;
 body {
     align-items: center;
-    background-color: #333;
-    color: wheat;
+    background-color: $dark;
+    color: $bright;
     display: flex;
     flex-direction: column;
     font-family: "Kalam", cursive;
@@ -28,7 +32,7 @@ header {
 .game-info {
     display: flex;
     text-align: center;
-    h4{
+    h4 {
         margin-left: 20px;
     }
 }
@@ -59,21 +63,21 @@ main {
 
     #endgame {
         align-items: center;
-        background-color: #8181b3;
+        background-color: $main;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+
         padding: 20px;
     }
 
     .leftside {
-        background: rgb(205, 184, 131);
+        background: $main2;
     }
 
     .rightside {
-        background: rgb(163, 144, 183);
+        background: $main;
     }
 
     .round-choice {
@@ -108,19 +112,19 @@ main {
         }
     }
 }
-.btn{
-    background: #cf972c;
+.btn {
+    background: darken($bright, 20%);
     border-radius: 10px;
     color: white;
     padding: 4px 8px;
     text-decoration: none;
-    &:hover{
-        background-color: #cf6d2c;
+    &:hover {
+        background-color: $bright;
     }
 }
 
 nav {
-    background: rgb(126, 166, 206);
+    background: $main2;
     border-radius: 10px;
     padding: 20px;
     width: min(60% - 2rem, 60rem);
@@ -129,11 +133,11 @@ nav {
         justify-content: space-between;
         list-style-type: none;
         padding: 0;
-    
+
         li {
             position: relative;
             &::before {
-                background-color: #cf972c;
+                background-color: $bright;
                 border-radius: 100px;
                 content: "";
                 display: block;
@@ -149,32 +153,30 @@ nav {
                 display: block;
                 height: 75px;
                 transform: rotate(-30deg);
-                transition: .1s;
+                transition: 0.1s;
                 width: 100px;
             }
             &.rock span {
                 background-image: url("#{$assetsPath}rock.png");
             }
-    
+
             &.paper span {
                 background-image: url("#{$assetsPath}paper.png");
             }
-    
+
             &.scissors span {
                 background-image: url("#{$assetsPath}scissors.png");
             }
-    
-            &:hover{
+
+            &:hover {
                 cursor: pointer;
                 span {
                     transform: scale(1.1);
                 }
-            } 
+            }
         }
     }
 }
-
-
 
 .choice-gif {
     animation: play 1.5s infinite;
