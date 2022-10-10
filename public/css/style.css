@@ -1,0 +1,177 @@
+/*ROCK PAPER SCISSORS CSS*/
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+body {
+  align-items: center;
+  background-color: #323031;
+  color: #ffc857;
+  display: flex;
+  flex-direction: column;
+  font-family: "Kalam", cursive;
+  min-height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+header {
+  margin-bottom: 20px;
+}
+header h2 {
+  margin-bottom: 0;
+}
+
+.game-info {
+  display: flex;
+  text-align: center;
+}
+.game-info h4 {
+  margin-left: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: min(100% - 2rem, 60rem);
+}
+main img {
+  width: 100px;
+}
+main #gamearea {
+  align-items: stretch;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  min-height: 130px;
+  overflow: hidden;
+}
+main #endgame {
+  align-items: center;
+  background-color: #084c61;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+main .leftside {
+  background: #177e89;
+}
+main .rightside {
+  background: #084c61;
+}
+main .round-choice {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 30px;
+}
+main .round-choice span {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  height: 77px;
+  width: 100px;
+}
+main .round-choice span.choice-rock {
+  background-image: url("../images/rock.png");
+}
+main .round-choice span.choice-paper {
+  background-image: url("../images/paper.png");
+}
+main .round-choice span.choice-scissors {
+  background-image: url("../images/scissors.png");
+}
+main .round-choice span[data-computer-choice] {
+  transform: scaleX(-1);
+}
+
+.btn {
+  background: #f0a100;
+  border-radius: 10px;
+  color: white;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+.btn:hover {
+  background-color: #ffc857;
+}
+
+nav {
+  background: #177e89;
+  border-radius: 10px;
+  padding: 20px;
+  width: min(60% - 2rem, 60rem);
+}
+nav .controls {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+nav .controls li {
+  position: relative;
+}
+nav .controls li::before {
+  background-color: #ffc857;
+  border-radius: 100px;
+  content: "";
+  display: block;
+  height: 109px;
+  left: -4px;
+  position: absolute;
+  top: -12px;
+  width: 109px;
+}
+nav .controls li span {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  height: 75px;
+  transform: rotate(-30deg);
+  transition: 0.1s;
+  width: 100px;
+}
+nav .controls li.rock span {
+  background-image: url("../images/rock.png");
+}
+nav .controls li.paper span {
+  background-image: url("../images/paper.png");
+}
+nav .controls li.scissors span {
+  background-image: url("../images/scissors.png");
+}
+nav .controls li:hover {
+  cursor: pointer;
+}
+nav .controls li:hover span {
+  transform: scale(1.1);
+}
+
+.choice-gif {
+  animation: play 1.5s infinite;
+}
+
+@keyframes play {
+  0% {
+    background-image: url("../images/rock.png");
+  }
+  33% {
+    background-image: url("../images/paper.png");
+  }
+  66% {
+    background-image: url("../images/scissors.png");
+  }
+  100% {
+    background-image: url("../images/rock.png");
+  }
+}
