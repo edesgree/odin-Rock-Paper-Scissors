@@ -5,7 +5,9 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
+.game-info{
+    text-align: center;
+}
 main {
     margin: 0 auto;
     display: flex;

@@ -14,9 +14,14 @@
     <header>
         <h1>Rock Paper Scissors</h1>
         <h2>Score: Player <span data-score-player>0</span> Computer <span data-score-computer>0</span></h2>
+
     </header>
-    <h3>Round <span data-current-round>1</span></h3>
-    <h4 data-current-round-result>coucou</h4>
+    
+    <div class="game-info">
+
+        <h3>Round <span data-current-round>1</span></h3>
+        <h4 data-current-round-result>&nbsp;</h4>
+    </div>
     <nav>
         <ul class="controls">
             <li id="1" data-choice="rock" class="rock"></li>
@@ -35,7 +40,7 @@
             </div>
         </div>
         <div id="endgame" class="hidden">
-            <h1>Game over</h1>
+            <h1 class="endgame-result">Game over</h1>
             <a href="javascript:location.reload(true)">Play again</a>
 
         </div>
