@@ -1,13 +1,27 @@
 /*ROCK PAPER SCISSORS CSS*/
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    font-family: 'Kalam', cursive;
+    color: wheat;
+    background-color: #333;
+
 }
-.game-info{
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.game-info {
     text-align: center;
 }
+
 main {
     margin: 0 auto;
     display: flex;
@@ -85,6 +99,7 @@ main .round-choice span[data-computer-choice] {
 nav {
     width: 100%;
     background: rgb(126, 166, 206);
+    padding: 20px;
 }
 
 .controls {
