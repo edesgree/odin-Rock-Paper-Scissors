@@ -7,9 +7,11 @@
     "scripts": {
       "build:sass": "sass  --no-source-map src/sass:public/css",
       "copy:html": "copyfiles -u 1 ./src/*.html public",
+      "copy:js": "copyfiles -u 1 ./src/*.js public",
       "copy:images": "copyfiles -u 1 ./src/images/**/* public",
       "copy": "npm-run-all --parallel copy:*",
       "watch:html": "onchange 'src/*.html' -- npm run copy:html",
+      "watch:html": "onchange 'src/*.js' -- npm run copy:js",
       "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
       "watch:images": "sass  --no-source-map --watch src/images:public/images",
       "watch": "npm-run-all --parallel watch:*",

@@ -1,7 +1,7 @@
 
 const game = () => {
 
-    // init variables
+    // init variables/
     const totalRounds = 5;
 
     // UI elememts
