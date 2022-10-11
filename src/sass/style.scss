@@ -1,0 +1,201 @@
+/*ROCK PAPER SCISSORS CSS*/
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+//VARS
+$containerWidth: min(100% - 2rem, 60rem);
+$assetsPath: "../images/";
+$dark: #323031;
+$bright: #ffc857;
+$bright2: #db3a34;
+$main: #084c61;
+$main2: #177e89;
+body {
+    align-items: center;
+    background-color: $dark;
+    color: $bright;
+    display: flex;
+    flex-direction: column;
+    font-family: "Kalam", cursive;
+    min-height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+header {
+    h2 {
+        margin-bottom: 0;
+    }
+    margin-bottom: 20px;
+}
+.game-info {
+    display: flex;
+    text-align: center;
+    h4 {
+        margin-left: 20px;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: $containerWidth;
+
+    img {
+        width: 100px;
+    }
+
+    #gamearea {
+        align-items: stretch;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        min-height: 130px;
+        overflow: hidden;
+    }
+
+    #endgame {
+        align-items: center;
+        background-color: $main;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 20px;
+    }
+
+    .leftside {
+        background: $main2;
+    }
+
+    .rightside {
+        background: $main;
+    }
+
+    .round-choice {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .round-choice span {
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        height: 77px;
+        width: 100px;
+
+        &.choice-rock {
+            background-image: url("#{$assetsPath}rock.png");
+        }
+
+        &.choice-paper {
+            background-image: url("#{$assetsPath}paper.png");
+        }
+
+        &.choice-scissors {
+            background-image: url("#{$assetsPath}scissors.png");
+        }
+
+        &[data-computer-choice] {
+            transform: scaleX(-1);
+        }
+    }
+}
+.btn {
+    background: darken($bright, 20%);
+    border-radius: 10px;
+    color: white;
+    padding: 4px 8px;
+    text-decoration: none;
+    &:hover {
+        background-color: $bright;
+    }
+}
+
+nav {
+    background: $main2;
+    border-radius: 10px;
+    padding: 20px;
+    width: min(60% - 2rem, 60rem);
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            position: relative;
+            &::before {
+                background-color: $bright;
+                border-radius: 100px;
+                content: "";
+                display: block;
+                height: 109px;
+                left: -4px;
+                position: absolute;
+                top: -12px;
+                width: 109px;
+            }
+            span {
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: block;
+                height: 75px;
+                transform: rotate(-30deg);
+                transition: 0.1s;
+                width: 100px;
+            }
+            &.rock span {
+                background-image: url("#{$assetsPath}rock.png");
+            }
+
+            &.paper span {
+                background-image: url("#{$assetsPath}paper.png");
+            }
+
+            &.scissors span {
+                background-image: url("#{$assetsPath}scissors.png");
+            }
+
+            &:hover {
+                cursor: pointer;
+                span {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.choice-gif {
+    animation: play 1.5s infinite;
+}
+
+@keyframes play {
+    0% {
+        background-image: url("#{$assetsPath}rock.png");
+    }
+
+    33% {
+        background-image: url("#{$assetsPath}paper.png");
+    }
+
+    66% {
+        background-image: url("#{$assetsPath}scissors.png");
+    }
+
+    100% {
+        background-image: url("#{$assetsPath}rock.png");
+    }
+}

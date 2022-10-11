@@ -1,0 +1,157 @@
+/*ROCK PAPER SCISSORS CSS*/
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Kalam', cursive;
+    color: wheat;
+    background-color: #333;
+
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.game-info {
+    text-align: center;
+}
+
+main {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+    flex: 1;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+main img {
+    width: 100px;
+}
+
+main #gamearea {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+main #endgame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+}
+
+main .leftside {
+    background: rgb(205, 184, 131);
+
+}
+
+main .rightside {
+    background: rgb(163, 144, 183);
+
+}
+
+main .round-choice {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .round-choice span {
+    width: 100px;
+    height: 77px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+main .round-choice span.choice-rock {
+    background-image: url("images/rock.png");
+}
+
+main .round-choice span.choice-paper {
+    background-image: url("images/paper.png");
+}
+
+main .round-choice span.choice-scissors {
+    background-image: url("images/scissors.png");
+}
+
+main .round-choice span[data-computer-choice] {
+    transform: scaleX(-1);
+
+}
+
+nav {
+    width: 100%;
+    background: rgb(126, 166, 206);
+    padding: 20px;
+}
+
+.controls {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.controls li {
+    width: 100px;
+    height: 75px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(-30deg);
+}
+
+.controls li.rock {
+    background-image: url('images/rock.png');
+}
+
+.controls li.paper {
+    background-image: url('images/paper.png');
+}
+
+.controls li.scissors {
+    background-image: url('images/scissors.png');
+}
+
+.controls li:hover {
+    transform: scale(1.1);
+    transition: 10ms;
+}
+
+.choice-gif {
+    animation: play 1.5s infinite;
+}
+
+@keyframes play {
+    0% {
+        background-image: url('images/rock.png');
+    }
+
+    33% {
+        background-image: url('images/paper.png');
+    }
+
+    66% {
+        background-image: url('images/scissors.png');
+    }
+
+    100% {
+        background-image: url('images/rock.png');
+    }
+}
